@@ -13,7 +13,7 @@ function PropiedadesList(){
 
 
     const obtenerPropiedades = () => {
-        let ruta = "http://api-agencia-propiedades.test/api/propiedades"
+        let ruta = "https://api-agencia-ortiz.herokuapp.com/api/propiedades"
         fetch(ruta)
             .then(resp => {
                 return resp.json()

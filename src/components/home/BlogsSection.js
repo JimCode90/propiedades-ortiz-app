@@ -11,7 +11,7 @@ function BlogsSection(){
     }, [])
 
     const mostrarPosts = () => {
-        let ruta = "http://api-agencia-propiedades.test/api/posts-home"
+        let ruta = "https://api-agencia-ortiz.herokuapp.com/api/posts-home"
         fetch(ruta)
             .then(resp => {
                 return resp.json()

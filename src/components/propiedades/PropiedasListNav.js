@@ -9,7 +9,7 @@ function PropiedasListNav(){
     }, [])
 
     const obtenerTiposPropiedades = () => {
-        let  ruta = "http://api-agencia-propiedades.test/api/tipos-propiedad"
+        let  ruta = "https://api-agencia-ortiz.herokuapp.com/api/tipos-propiedad"
         fetch(ruta)
             .then(resp => {
                 return resp.json()

@@ -9,7 +9,7 @@ function PropertiesSection(){
     }, [])
 
     const mostrarPropiedades = () => {
-        const ruta = "http://api-agencia-propiedades.test/api/propiedades-home"
+        const ruta = "https://api-agencia-ortiz.herokuapp.com/api/propiedades-home"
         fetch(ruta)
             .then(resp => {
                 return resp.json()

@@ -12,7 +12,7 @@ function Agentes(){
 
 
     const obtenerAgentes = () => {
-        let ruta = "http://api-agencia-propiedades.test/api/agentes"
+        let ruta = "https://api-agencia-ortiz.herokuapp.com/api/agentes"
         fetch(ruta)
             .then(resp => {
                 return resp.json()
