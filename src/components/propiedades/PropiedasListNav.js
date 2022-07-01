@@ -23,8 +23,10 @@ function PropiedasListNav(){
         <div className="row">
             <div className="col">
                 <ul className="properties-list nav justify-content-end" role="tablist">
-                    <li className="active"><a className="active" href="#all" role="tab"
-                                              data-toggle="tab">Todos</a></li>
+                    <li className="active">
+                        <a className="active" href="#" role="tab"
+                                              data-toggle="tab">Todos</a>
+                    </li>
                     {
                         tiposPropiedad.map(tipo =>
                             <li key={tipo.id}><a href="#" role="tab" data-toggle="tab">{ tipo.descripcion.toUpperCase() }</a></li>

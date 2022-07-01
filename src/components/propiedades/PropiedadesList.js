@@ -58,10 +58,16 @@ function PropiedadesList(){
                                                 onChange={(e) => setNombrePropiedad(e.target.value)}
                                             />
                                         </div>
-                                        <div className="mb-3">
+                                        <div className="mb-3 properties-list nav justify-content-end" role="tablist">
                                             <button
-                                                className='btn btn-primary'
+                                                style={{
+                                                    padding: ".8em",
+                                                    backgroundColor: "#25a5de",
+                                                    borderRadius: "10px",
+                                                    border: "none"
+                                                }}
                                                 id="btnBuscar"
+                                                data-toggle="tab"
                                                 onClick={() => buscar()}
                                             >
                                                 Consultar
