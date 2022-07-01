@@ -1,4 +1,5 @@
 import {useEffect, useState} from "react";
+import {URL_API_BASE} from "../../utils";
 
 
 function PropertiesSection(){
@@ -9,7 +10,8 @@ function PropertiesSection(){
     }, [])
 
     const mostrarPropiedades = () => {
-        const ruta = "http://api-agencia-propiedades.test/api/propiedades-home"
+        const ruta = `${URL_API_BASE}/api/propiedades-home`
+
         fetch(ruta)
             .then(resp => {
                 return resp.json()

@@ -1,6 +1,5 @@
-
-import blog1 from '../../assets/img/blog/blog-s-01.jpg'
 import {useEffect, useState} from "react";
+import {URL_API_BASE} from "../../utils";
 
 function BlogsSection(){
 
@@ -11,7 +10,7 @@ function BlogsSection(){
     }, [])
 
     const mostrarPosts = () => {
-        let ruta = "http://api-agencia-propiedades.test/api/posts-home"
+        let ruta = `${URL_API_BASE}/api/posts-home`
         fetch(ruta)
             .then(resp => {
                 return resp.json()

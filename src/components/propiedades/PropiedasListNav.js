@@ -1,4 +1,5 @@
 import {useEffect, useState} from "react";
+import {URL_API_BASE} from "../../utils";
 
 
 function PropiedasListNav(){
@@ -9,7 +10,7 @@ function PropiedasListNav(){
     }, [])
 
     const obtenerTiposPropiedades = () => {
-        let  ruta = "http://api-agencia-propiedades.test/api/tipos-propiedad"
+        let  ruta = `${URL_API_BASE}/api/tipos-propiedad`
         fetch(ruta)
             .then(resp => {
                 return resp.json()

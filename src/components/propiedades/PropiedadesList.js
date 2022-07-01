@@ -2,10 +2,13 @@ import {useEffect, useState} from "react";
 import SearchOverlay from "../../common/SearchOverlay";
 import BreadcrumbAreaSection from "../../common/BreadcrumbAreaSection";
 import PropiedasListNav from "./PropiedasListNav";
+import {URL_API_BASE} from "../../utils";
 
 
 function PropiedadesList(){
     const [propiedades, setPropiedades] = useState([]);
+    const [propiedadesFiltradas, setPropiedadesFiltradas] = useState([]);
+    const [nombrePropiedad, setNombrePropiedad] = useState("");
 
     useEffect(() => {
         obtenerPropiedades()
@@ -13,15 +16,27 @@ function PropiedadesList(){
 
 
     const obtenerPropiedades = () => {
-        let ruta = "http://api-agencia-propiedades.test/api/propiedades"
+        let ruta = `${URL_API_BASE}/api/propiedades`
         fetch(ruta)
             .then(resp => {
                 return resp.json()
             })
             .then((data) => {
                 setPropiedades(data)
+                document.getElementById("btnBuscar").click();
             })
     }
+
+    const buscar = () => {
+        let datosFiltrados = propiedades.filter((item) => {
+            console.log({item})
+                return nombrePropiedad !=="" ? item["nombre"].indexOf(nombrePropiedad) > 0 : true
+            }
+        )
+        console.log(datosFiltrados)
+        setPropiedadesFiltradas(datosFiltrados)
+    }
+    
     return (
         <>
             <SearchOverlay />
@@ -34,6 +49,24 @@ function PropiedadesList(){
                             <div className="tab-pane active" id="all">
                                 <div className="row">
                                     <div className="col-12 mt-65">
+                                        <div className="mb-3">
+                                            <input
+                                                type="text"
+                                                className='form-control'
+                                                placeholder='Buscar Propiedad'
+                                                value={nombrePropiedad}
+                                                onChange={(e) => setNombrePropiedad(e.target.value)}
+                                            />
+                                        </div>
+                                        <div className="mb-3">
+                                            <button
+                                                className='btn btn-primary'
+                                                id="btnBuscar"
+                                                onClick={() => buscar()}
+                                            >
+                                                Consultar
+                                            </button>
+                                        </div>
                                         <table className="table table-striped">
                                             <thead>
                                             <tr>
@@ -47,7 +80,7 @@ function PropiedadesList(){
                                             </thead>
                                             <tbody>
                                             {
-                                                propiedades.map(propiedad =>
+                                                propiedadesFiltradas.map(propiedad =>
                                                     <tr key={propiedad.id}>
                                                         <th scope="row">{ propiedad.id }</th>
                                                         <td>{ propiedad.nombre }</td>

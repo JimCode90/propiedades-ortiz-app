@@ -2,6 +2,7 @@ import SearchOverlay from "../../common/SearchOverlay";
 import BreadcrumbAreaSection from "../../common/BreadcrumbAreaSection";
 import {useEffect, useState} from "react";
 import PropiedasListNav from "./PropiedasListNav";
+import {URL_API_BASE} from "../../utils";
 
 
 function Propiedades(){
@@ -13,7 +14,7 @@ function Propiedades(){
 
 
     const obtenerPropiedades = () => {
-        let ruta = "http://api-agencia-propiedades.test/api/propiedades"
+        let ruta = `${URL_API_BASE}/api/propiedades`
         fetch(ruta)
             .then(resp => {
                 return resp.json()

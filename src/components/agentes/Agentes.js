@@ -1,6 +1,7 @@
 import SearchOverlay from "../../common/SearchOverlay";
 import BreadcrumbAreaSection from "../../common/BreadcrumbAreaSection";
 import {useEffect, useState} from "react";
+import {URL_API_BASE} from "../../utils";
 
 function Agentes(){
 
@@ -12,7 +13,7 @@ function Agentes(){
 
 
     const obtenerAgentes = () => {
-        let ruta = "http://api-agencia-propiedades.test/api/agentes"
+        let ruta = `${URL_API_BASE}/api/agentes`
         fetch(ruta)
             .then(resp => {
                 return resp.json()
