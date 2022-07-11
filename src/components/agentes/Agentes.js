@@ -1,6 +1,7 @@
 import SearchOverlay from "../../common/SearchOverlay";
 import BreadcrumbAreaSection from "../../common/BreadcrumbAreaSection";
 import {useEffect, useState} from "react";
+import {URL_API_BASE} from "../../utils";
 
 function Agentes(){
 
@@ -12,7 +13,11 @@ function Agentes(){
 
 
     const obtenerAgentes = () => {
+<<<<<<< HEAD
         let ruta = "https://api-agencia-ortiz.herokuapp.com/api/agentes"
+=======
+        let ruta = `${URL_API_BASE}/api/agentes`
+>>>>>>> 36e2a13157cc5038dd361dba8221d4d3cb70b876
         fetch(ruta)
             .then(resp => {
                 return resp.json()

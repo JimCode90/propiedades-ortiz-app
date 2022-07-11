@@ -1,4 +1,5 @@
 import {useEffect, useState} from "react";
+import {URL_API_BASE} from "../../utils";
 
 
 function PropertiesSection(){
@@ -9,7 +10,12 @@ function PropertiesSection(){
     }, [])
 
     const mostrarPropiedades = () => {
+<<<<<<< HEAD
         const ruta = "https://api-agencia-ortiz.herokuapp.com/api/propiedades-home"
+=======
+        const ruta = `${URL_API_BASE}/api/propiedades-home`
+
+>>>>>>> 36e2a13157cc5038dd361dba8221d4d3cb70b876
         fetch(ruta)
             .then(resp => {
                 return resp.json()

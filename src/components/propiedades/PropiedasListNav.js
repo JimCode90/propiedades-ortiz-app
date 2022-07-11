@@ -1,32 +1,32 @@
 import {useEffect, useState} from "react";
+import {URL_API_BASE} from "../../utils";
 
 
-function PropiedasListNav(){
-    const [tiposPropiedad, setTiposPropiedad] = useState([]);
-
+function PropiedasListNav({ setFiltro }){
+    const [categorias, setCategorias] = useState([]);
     useEffect( () => {
-        obtenerTiposPropiedades()
+        obtenerCategorias()
     }, [])
 
-    const obtenerTiposPropiedades = () => {
-        let  ruta = "https://api-agencia-ortiz.herokuapp.com/api/tipos-propiedad"
+
+    const obtenerCategorias = () => {
+        let ruta = `${URL_API_BASE}/api/categorias`
         fetch(ruta)
             .then(resp => {
                 return resp.json()
             })
-            .then(data => {
-                setTiposPropiedad(data)
+            .then((data) => {
+                setCategorias(data)
             })
     }
+
     return (
         <div className="row">
-            <div className="col">
-                <ul className="properties-list nav justify-content-end" role="tablist">
-                    <li className="active"><a className="active" href="#all" role="tab"
-                                              data-toggle="tab">Todos</a></li>
+            <div className="col-12">
+                <ul className="properties-list nav justify-content-center" role="tablist">
                     {
-                        tiposPropiedad.map(tipo =>
-                            <li key={tipo.id}><a href="#" role="tab" data-toggle="tab">{ tipo.descripcion.toUpperCase() }</a></li>
+                        categorias.map(cat =>
+                            <li key={cat.id}><a onClick={() => setFiltro(cat.id)} role="tab" data-toggle="tab">{ cat.descripcion.toUpperCase() }</a></li>
                         )
                     }
                 </ul>

@@ -1,6 +1,5 @@
-
-import blog1 from '../../assets/img/blog/blog-s-01.jpg'
 import {useEffect, useState} from "react";
+import {URL_API_BASE} from "../../utils";
 
 function BlogsSection(){
 
@@ -11,7 +10,11 @@ function BlogsSection(){
     }, [])
 
     const mostrarPosts = () => {
+<<<<<<< HEAD
         let ruta = "https://api-agencia-ortiz.herokuapp.com/api/posts-home"
+=======
+        let ruta = `${URL_API_BASE}/api/posts-home`
+>>>>>>> 36e2a13157cc5038dd361dba8221d4d3cb70b876
         fetch(ruta)
             .then(resp => {
                 return resp.json()
